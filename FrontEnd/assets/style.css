@@ -185,6 +185,11 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
+/* fond */ 
+body{
+	background-color:#FFFEF8;
+	;
+}
 /* Styles de base pour les boutons */
 .categories button {
 	border: 1px solid #1D6154; /* Couleur de la bordure */
@@ -211,5 +216,59 @@ footer nav ul {
 	margin-top: 20px; /* Espace au-dessus des boutons */
 	margin-bottom: 20px; /* Espace au-dessous des boutons */
   }
+/*Page de connexion*/
+
+  .login-container {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+  }
   
+  .login-container button {
+	border: 1px solid #1D6154; /* Couleur de la bordure */
+	border-radius: 25px; /* Coins arrondis */
+	padding: 10px 20px; /* Espacement interne */
+	margin-right: 10px; /* Espacement entre les boutons */
+	background-color: #1D6154; /* Fond vert */
+	color: white; /* Couleur du texte */
+	font-family: 'Syne', sans-serif; /* Police */
+	font-size: 16px;
+	cursor: pointer;
+  }
+  
+  .form-group {
+	margin-bottom: 15px;
+  }
+  
+  .form-group label {
+	display: block;
+	font-size: 14px;
+	margin-bottom: 5px;
+	text-align: start;
+	font-family: Work Sans;
+	font-weight:500;
+  }
+  
+  .form-group input {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	font-size: 14px;
+	box-shadow: 0px 4px 14px 0px #00000017;
+  }
+    
+  .forgot-password {
+	display: block;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #3D3D3D;
+	text-decoration: underline;
+  }
+  
+  /* Hyperlien*/
+  a{
+	text-decoration: none;
+  }
 

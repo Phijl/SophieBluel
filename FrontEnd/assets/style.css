@@ -185,4 +185,31 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
+/* Styles de base pour les boutons */
+.categories button {
+	border: 1px solid #1D6154; /* Couleur de la bordure */
+	border-radius: 25px; /* Coins arrondis */
+	padding: 10px 20px; /* Espacement interne */
+	margin-right: 10px; /* Espacement entre les boutons */
+	background-color: white; /* Fond blanc */
+	color: #1D6154; /* Couleur du texte */
+	font-family: 'Syne', sans-serif; /* Police */
+	font-size: 16px;
+	cursor: pointer;
+  }
+  
+  /* Style pour le bouton actif */
+  .categories button.active {
+	background-color: #1D6154; /* Couleur de fond pour le bouton actif */
+	color: white; /* Texte blanc */
+  }
+  /* section projet*/
+.categories {
+	display: flex;
+	justify-content: center; /* Centre les boutons horizontalement */
+	align-items: center; /* Aligne les boutons verticalement */
+	margin-top: 20px; /* Espace au-dessus des boutons */
+	margin-bottom: 20px; /* Espace au-dessous des boutons */
+  }
+  
 

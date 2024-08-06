@@ -275,4 +275,16 @@ body{
   #auth-link:hover {
 	color: #B1663C; /* Couleur au survol */
   }
-  
+
+  /*fontawesome */
+  i{
+	margin-right: 5px;
+  }
+
+  /* Bouton modifier*/
+  #edit-button{
+	font-family: Work Sans;
+	font-size: 14px;
+	border: none;
+	background-color: transparent;
+  }

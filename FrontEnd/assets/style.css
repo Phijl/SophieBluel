@@ -225,7 +225,7 @@ body{
 	text-align: center;
   }
   
-  .login-container button {
+  .login-container button, #add-photo{
 	border: 1px solid #1D6154; /* Couleur de la bordure */
 	border-radius: 25px; /* Coins arrondis */
 	padding: 10px 20px; /* Espacement interne */
@@ -288,3 +288,110 @@ body{
 	border: none;
 	background-color: transparent;
   }
+
+  /* Style de base pour la modale */
+
+h3 {
+	font-family: Work Sans;
+	font-size: 26px;
+	font-weight: 400;
+	line-height: 30.5px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4);
+  }
+  
+  /* Contenu de la modale */
+  .modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 30px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 600px;
+	border-radius: 10px;
+  }
+  
+  /* Bouton fermer (X) */
+  .close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+  #modal-gallery .work {
+    position: relative;
+    width: 77px;
+    height: 102px;
+    margin: 5px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+#modal-gallery .work img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#modal-gallery .work .delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+	background-color: #000;
+	color: #FFFFFF;
+	width: 20px; 
+    height: 20px; 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 3px;
+}
+
+#modal-gallery.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+	grid-column-gap: 0px;
+    grid-row-gap: 0px;
+	margin-left: 30px;
+}
+
+#add-photo{
+	margin-top: 20px;	
+}
+ 
+.apho {
+	display: flex;
+	justify-content: center;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	background-color: #B3B3B3; /* Couleur de la ligne */
+	margin-top: 50px;
+	max-width: 530px;
+}

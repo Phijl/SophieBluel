@@ -10,20 +10,19 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="../FrontEnd/galerieTravaux.js"></script>
-	
+	<script src="../FrontEnd/logout.js"></script>
 </head>
-<body>
-	
+<body>	
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
 			<a href="index.html"><li>projets</li></a>
 			<li>contact</li>
-			<a href="connexion.html"><li>login</li></a>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+		  <li><a id="auth-link" href="connexion.html">login</a></li>
+		  <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
-	</nav>
+	  </nav>
 </header>
 <main>
 	<section id="introduction">
@@ -38,7 +37,7 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes projets</h2>
+		<h2>Mes projets <button id="edit-button" style="display:none;">modifier</button></h2>
 		<div class="categories"></div>
 		<div class="gallery"></div>
 	</section>

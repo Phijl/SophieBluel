@@ -183,7 +183,7 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
 }
 /* fond */ 
 body{
@@ -270,5 +270,9 @@ body{
   /* Hyperlien*/
   a{
 	text-decoration: none;
+	color: #000;
   }
-
+  #auth-link:hover {
+	color: #B1663C; /* Couleur au survol */
+  }
+  

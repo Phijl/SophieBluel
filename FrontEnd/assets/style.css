@@ -395,3 +395,48 @@ hr {
 	margin-top: 50px;
 	max-width: 530px;
 }
+
+
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    font-size: 16px;
+}
+
+.photo-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.photo-label .photo-box img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+	
+}
+
+
+.photo-label .photo-box i {
+    font-size: 30px;
+    color: #cccccc;
+}
+
+.photo-label .photo-box button {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #666666;
+	border-radius: 50px 50px 50px 50px;
+	color: #306685;
+	background-color:  #CBD6DC;
+	border: transparent;
+}
+
+.photo-label .photo-box p {
+    font-size: 12px;
+    color: #999999;
+}

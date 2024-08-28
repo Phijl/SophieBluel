@@ -62,17 +62,28 @@
     <div id="add-photo-modal" class="modal" style="display:none;">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Ajout photo</h2>
+            <i id="back-arrow" class="fa-solid fa-arrow-left"></i>
+            <h4>Ajout photo</h4>
             <form id="add-photo-form">
-                <label for="photo">Ajouter photo</label>
-                <input type="file" id="photo" name="photo">
+                <div id="photo-container" class="photo-container">
+                    <label for="photo" class="photo-label">
+                        <div class="photo-box">
+                            <img id="photo-preview" src="#" alt="Aperçu de la photo" style="display:none; max-width: 100%; height: auto;" />
+                            <button type="button" id="add-photo-button" class="photo">+ Ajouter photo</button>
+                            <p>jpg, png : 4mo max</p>
+                        </div>
+                    </label>
+                    <input type="file" id="photo" name="photo" style="display:none;">
+                </div>                
                 <label for="title">Titre</label>
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" required>
                 <label for="category">Catégorie</label>
-                <select id="category" name="category">
-                    <!-- Les options de catégories vont ici -->
+                <select id="category" name="category" required>
+                    <!-- Les options de catégories seront ajoutées dynamiquement ici -->
                 </select>
-                <button type="submit">Valider</button>
+                <div class="apho">
+                <button id="add-photo" type="submit">Valider</button>
+                </div>
             </form>
         </div>
     </div>

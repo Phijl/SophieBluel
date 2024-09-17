@@ -409,8 +409,12 @@ input[type="text"], select {
 }
 
 .photo-container {
-    margin: 20px 0;
+    margin: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
     text-align: center;
+	background-color: #E8F1F6;
+	border-radius: 3px;
 }
 
 .photo-label .photo-box img {
@@ -439,4 +443,16 @@ input[type="text"], select {
 .photo-label .photo-box p {
     font-size: 12px;
     color: #999999;
+}
+
+#picto{
+	font-size: 500%;
+	color: #B9C5CC;
+	display: flex;
+	justify-content: center;
+}
+
+#preview{
+	max-width: 200px;
+	
 }

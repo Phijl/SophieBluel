@@ -64,20 +64,19 @@
             <span class="close">&times;</span>
             <i id="back-arrow" class="fa-solid fa-arrow-left"></i>
             <h4>Ajout photo</h4>
-            <form id="add-photo-form">
-                <label for="fileInput">Télécharger une image :</label>
-    <input type="file" id="fileInput" accept="image/*">
-    <br><br>
-    <img id="preview" src="" alt="Aperçu de l'image" style="display: none; max-width: 200px;"/>
-                <div id="photo-container" class="photo-container">
-                    <label for="photo" class="photo-label">
+            <div id="photo-container" class="photo-container">
+            <form id="addphotoform">
+    <img id="preview" src=""  />
+    <i id="picto" class="fa-regular fa-image"></i>
+                
+                    <label for="fileInput" class="photo-label">
+                        <input type="file" id="fileInput" accept="image/*" name="photo" style="display:none;">
                         <div class="photo-box">
-                            <img id="photo-preview" src="#" alt="Aperçu de la photo" style="display:none; max-width: 100%; height: auto;" />
                             <button type="button" id="add-photo-button" class="photo">+ Ajouter photo</button>
                             <p>jpg, png : 4mo max</p>
                         </div>
                     </label>
-                    <input type="file" id="photo" name="photo" style="display:none;">
+                    
                 </div>                
                 <label for="title">Titre</label>
                 <input type="text" id="title" name="title" required>

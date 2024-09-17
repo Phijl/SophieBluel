@@ -13,6 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const photoBox = document.querySelector(".photo-box");
   const photoContainer = document.getElementById("photo-container");
 
+  backArrow.addEventListener("click", () => {
+    const preview = document.getElementById('preview');
+    preview.src = ''; // Vider l'aperçu de l'image
+    preview.style.display = 'none'; // Cacher l'élément img
+    document.getElementById('imageForm').reset(); // Réinitialiser le formulaire
+    
+    addPhotoModal.style.display = "none";
+    modal.style.display = "block";
+    // Réinitialiser le formulaire
+    addPhotoForm.reset();
+
+    // Réinitialiser le sélecteur de catégorie à un état vierge
+    categorySelect.value = "";
+
+    // Revenir à la modale galerie photo
+    addPhotoModal.style.display = "none";
+    modal.style.display = "block";
+  });
+
   // Charger les catégories depuis le backend
   fetch("http://localhost:5678/api/categories")
     .then((response) => response.json())
@@ -45,12 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     addPhotoModal.style.display = "block";
   });
 
-  // Revenir à la modale galerie photo
-  backArrow.addEventListener("click", () => {
-    addPhotoModal.style.display = "none";
-    modal.style.display = "block";
-  });
-
   // Fermer les modales au clic sur la croix
   closeButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -67,17 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  backArrow.addEventListener("click", () => {
-    // Réinitialiser le formulaire
-    addPhotoForm.reset();
 
-    // Réinitialiser le sélecteur de catégorie à un état vierge
-    categorySelect.value = "";
-
-    // Revenir à la modale galerie photo
-    addPhotoModal.style.display = "none";
-    modal.style.display = "block";
-  });
 
   // Charger la galerie dans la modale
   function loadGallery() {
@@ -111,6 +114,20 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById('preview');
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+    }
+});
+
   // Afficher un aperçu de la photo sélectionnée
   photoInput.addEventListener("change", (event) => {
     const file = event.target.files[0];

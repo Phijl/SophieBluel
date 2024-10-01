@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const authLink = document.getElementById("auth-link");
   const editButton = document.getElementById("edit-button");
-
   const token = localStorage.getItem("authToken");
 
   if (token) {

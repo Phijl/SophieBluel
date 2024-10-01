@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) =>
       console.error("Erreur lors de la récupération des catégories:", error)
     );
+
   // Afficher un aperçu de la photo sélectionnée
   addPhotoForm.addEventListener("change", (event) => {
     const file = event.target.files[0];
@@ -59,10 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
     loadGallery();
   });
   backArrow.addEventListener("click", () => {
-    preview.src = "preview"; // Vider l'aperçu de l'image
-    preview.style.display = "none"; // Cacher l'élément img
-
-    addPhotoModal.style.display = "none";
+    preview.src = ""; // Vider l'aperçu de l'image
+    picto.style.display = "block";
+    photoBox.querySelector("button").style.display = "initial";
+    photoBox.querySelector("p").style.display = "block";
     modal.style.display = "block";
     // Réinitialiser le formulaire
     addPhotoForm.reset();
@@ -86,6 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       modal.style.display = "none";
       addPhotoModal.style.display = "none";
+      preview.src = "";
+      picto.style.display = "block";
+      photoBox.querySelector("button").style.display = "initial";
+      photoBox.querySelector("p").style.display = "block";
     });
   });
 
@@ -94,6 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target == modal || event.target == addPhotoModal) {
       modal.style.display = "none";
       addPhotoModal.style.display = "none";
+      preview.src = "";
+      picto.style.display = "block";
+      photoBox.querySelector("button").style.display = "initial";
+      photoBox.querySelector("p").style.display = "block";
     }
   });
 

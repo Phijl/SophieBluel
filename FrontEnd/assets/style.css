@@ -23,14 +23,15 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
+
+main{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	margin: 10px;
 }
-body {
-	line-height: 1;
-}
+
 ol, ul {
 	list-style: none;
 }
@@ -48,15 +49,16 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
-	margin:auto;
+	line-height: 1;
+	
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	
+	position: relative;
 }
 section {
 	margin: 50px 0
@@ -68,10 +70,12 @@ h1{
 	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
-	color: #B1663C
+	color: #B1663C;
+	margin-top: 60px;
+	margin-left: 60px;
 }
 
-h1 > span {
+h1  span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
@@ -88,6 +92,8 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
+	margin-top: 60px;
+	margin-right: 60px;
 
 }
 nav li {
@@ -311,6 +317,21 @@ h4 {
 	overflow: auto;
 	background-color: rgb(0,0,0);
 	background-color: rgba(0,0,0,0.4);
+  }
+  .bandeau{
+	background-color: #000;
+	color: white;
+	width: 100%;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+	position: absolute;
+	padding: 10px 0;
+	
+  }
+
+  .SB{
+	margin-top: 1000px;
   }
   
   /* Contenu de la modale */

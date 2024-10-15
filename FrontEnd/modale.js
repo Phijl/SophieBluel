@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const photoBox = document.querySelector(".photo-box");
   const photoContainer = document.getElementById("photo-container");
   const picto = document.getElementById("picto");
+  const err = document.getElementById("error-message");
 
   const preview = document.getElementById("preview");
 
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     photoBox.querySelector("button").style.display = "initial";
     photoBox.querySelector("p").style.display = "block";
     modal.style.display = "block";
+    err.style.display = "none";
     // Réinitialiser le formulaire
     addPhotoForm.reset();
 
@@ -91,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       picto.style.display = "block";
       photoBox.querySelector("button").style.display = "initial";
       photoBox.querySelector("p").style.display = "block";
+      err.style.display = "none";
     });
   });
 
@@ -103,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       picto.style.display = "block";
       photoBox.querySelector("button").style.display = "initial";
       photoBox.querySelector("p").style.display = "block";
+      err.style.display = "none";
     }
   });
 
@@ -182,6 +186,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   addPhotoForm.addEventListener("submit", (event) => {
     event.preventDefault(); // Empêche le rechargement de la page
+
+    // Vérifie si une photo a été sélectionnée
+    const fileInput = document.getElementById("fileInput");
+    const errorMessage = document.getElementById("error-message");
+
+    if (!fileInput.files.length) {
+      // Affiche le message d'erreur si aucune photo n'est sélectionnée
+      errorMessage.style.display = "block";
+      return; // Empêche la soumission si aucune photo n'a été sélectionnée
+    } else {
+      // Cache le message d'erreur s'il y en avait un affiché précédemment
+      errorMessage.style.display = "none";
+    }
 
     // Récupérer les données du formulaire
     const formData = new FormData();

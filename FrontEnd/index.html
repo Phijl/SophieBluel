@@ -75,20 +75,22 @@
                     <label for="fileInput" class="photo-label">
                         <input type="file" id="fileInput" accept="image/*" name="photo" style="display:none;">
                         <div class="photo-box">
-                            <button type="button" id="add-photo-button" class="photo">+ Ajouter photo</button>
+                            <button type="button" id="add-photo-button"  class="photo">+ Ajouter photo</button>
                             <p>jpg, png : 4mo max</p>
+                            <p id="error-message" class="error-message" style="color: red; display: none;">Veuillez sélectionner une photo avant de soumettre le formulaire.</p>
                         </div>
                     </label>
                     
                 </div>                
                 <label for="title">Titre</label>
-                <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="title" required="required">
                 <label for="category">Catégorie</label>
-                <select id="category" name="category" required>
+                <select id="category" name="category" required="required">
                     <!-- Les options de catégories seront ajoutées dynamiquement ici -->
                 </select>
                 <div class="apho">
                 <button id="add-photo" type="submit">Valider</button>
+                
                 </div>
             </form>
         </div>

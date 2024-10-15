@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const authLink = document.getElementById("auth-link");
-  const editButton = document.getElementById("edit-button");
-  const token = localStorage.getItem("authToken");
-  const bandeau = document.getElementById("bandeau");
+const authLink = document.getElementById("auth-link");
+const editButton = document.getElementById("edit-button");
+const token = localStorage.getItem("authToken");
+const bandeau = document.getElementById("bandeau");
 
+document.addEventListener("DOMContentLoaded", () => {
   if (token) {
     // L'utilisateur est connecté
     authLink.textContent = "logout";
@@ -15,11 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Déconnecter l'utilisateur
       localStorage.removeItem("authToken");
       window.location.reload();
+      bandeau.style.display = "none";
     });
-  } else {
-    // L'utilisateur n'est pas connecté
-
-    editButton.style.display = "none";
-    bandeau.style.display = "none";
   }
 });

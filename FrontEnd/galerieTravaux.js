@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Récupérer les catégories depuis l'API
+
   fetch("http://localhost:5678/api/categories")
     .then((response) => response.json())
     .then((categoriesData) => {

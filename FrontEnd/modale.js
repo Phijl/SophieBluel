@@ -139,6 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
       icon.addEventListener("click", (event) => {
         const workId = event.target.getAttribute("data-id");
         deleteWork(workId);
+		 // Appeler la méthode renderImages de la classe Gallery
+		gallery.renderImages();
       });
     });
   }
@@ -219,7 +221,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => {
         if (response.ok) {
           // Si l'ajout est réussi, rafraîchir la galerie
-          loadGallery();
+         loadGallery();
+         // Appeler la méthode renderImages de la classe Gallery
+		 gallery.renderImages(); 
+
           // Fermer la modal d'ajout de photo
           addPhotoModal.style.display = "none";
           modal.style.display = "block";

@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const photoContainer = document.getElementById("photo-container");
   const picto = document.getElementById("picto");
   const err = document.getElementById("error-message");
-
   const preview = document.getElementById("preview");
 
   document
@@ -39,22 +38,33 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Erreur lors de la récupération des catégories:", error)
     );
 
-  // Afficher un aperçu de la photo sélectionnée
   addPhotoForm.addEventListener("change", (event) => {
     const file = event.target.files[0];
+    const maxSize = 4 * 1024 * 1024; // Taille maximale en octets (4 Mo)
     if (file) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        preview.src = e.target.result;
-        preview.style.textAlign = "center";
+      if (file.size > maxSize) {
+        err.style.display = "block"; // Affiche un message d'erreur
+        err.textContent = "L'image est trop volumineuse (max. 4 Mo).";
+        preview.src = ""; // Vider l'aperçu de l'image
+        picto.style.display = "block";
+        photoBox.querySelector("button").style.display = "initial";
+        photoBox.querySelector("p").style.display = "block";
+      } else {
+        err.style.display = "none"; // Cache le message d'erreur
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.textAlign = "center";
 
-        photoBox.querySelector("button").style.display = "none";
-        photoBox.querySelector("p").style.display = "none";
-        picto.style.display = "none";
-      };
-      reader.readAsDataURL(file);
+          photoBox.querySelector("button").style.display = "none";
+          photoBox.querySelector("p").style.display = "none";
+          picto.style.display = "none";
+        };
+        reader.readAsDataURL(file);
+      }
     }
   });
+
   // Ouvrir la modale de la galerie photo
   editButton.addEventListener("click", () => {
     modal.style.display = "block";
@@ -139,8 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
       icon.addEventListener("click", (event) => {
         const workId = event.target.getAttribute("data-id");
         deleteWork(workId);
-		 // Appeler la méthode renderImages de la classe Gallery
-		gallery.renderImages();
+        // Appeler la méthode renderImages de la classe Gallery
+        gallery.renderImages();
       });
     });
   }
@@ -189,18 +199,24 @@ document.addEventListener("DOMContentLoaded", () => {
   addPhotoForm.addEventListener("submit", (event) => {
     event.preventDefault(); // Empêche le rechargement de la page
 
-    // Vérifie si une photo a été sélectionnée
     const fileInput = document.getElementById("fileInput");
     const errorMessage = document.getElementById("error-message");
+    const maxSize = 4 * 1024 * 1024; // Taille maximale en octets (4 Mo)
 
     if (!fileInput.files.length) {
-      // Affiche le message d'erreur si aucune photo n'est sélectionnée
       errorMessage.style.display = "block";
-      return; // Empêche la soumission si aucune photo n'a été sélectionnée
-    } else {
-      // Cache le message d'erreur s'il y en avait un affiché précédemment
-      errorMessage.style.display = "none";
+      errorMessage.textContent = "Veuillez sélectionner une image.";
+      return;
     }
+
+    const file = fileInput.files[0];
+    if (file.size > maxSize) {
+      errorMessage.style.display = "block";
+      errorMessage.textContent = "L'image est trop volumineuse (max. 4 Mo).";
+      return;
+    }
+
+    errorMessage.style.display = "none"; // Cache le message d'erreur
 
     // Récupérer les données du formulaire
     const formData = new FormData();
@@ -220,12 +236,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((response) => {
         if (response.ok) {
-          // Si l'ajout est réussi, rafraîchir la galerie
-         loadGallery();
-         // Appeler la méthode renderImages de la classe Gallery
-		 gallery.renderImages(); 
+          loadGallery();
+          gallery.renderImages();
 
-          // Fermer la modal d'ajout de photo
           addPhotoModal.style.display = "none";
           modal.style.display = "block";
         } else {

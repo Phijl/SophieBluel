@@ -8,6 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = loginForm.email.value;
     const password = loginForm.password.value;
 
+    // Validation des champs
+    if (!email) {
+      errorMessage.textContent = "L'e-mail est requis.";
+      errorMessage.style.display = "block";
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      errorMessage.textContent = "Veuillez entrer un e-mail valide.";
+      errorMessage.style.display = "block";
+      return;
+    }
+    if (!password) {
+      errorMessage.textContent = "Le mot de passe est requis.";
+      errorMessage.style.display = "block";
+      return;
+    }
+
+    // Réinitialiser le message d'erreur avant l'envoi
+    errorMessage.style.display = "none";
     // Envoyer les données de connexion à l'API
     fetch("http://localhost:5678/api/users/login", {
       method: "POST",

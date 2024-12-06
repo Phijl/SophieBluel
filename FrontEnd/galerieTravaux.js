@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const allButton = document.createElement("button");
       allButton.textContent = "Tous";
       allButton.dataset.categoryId = "all";
+      allButton.classList.add("active"); // Ajouter la classe "active" par défaut
       categoriesMenu.insertBefore(allButton, categoriesMenu.firstChild);
 
       // Récupérer et afficher les travaux depuis l'API

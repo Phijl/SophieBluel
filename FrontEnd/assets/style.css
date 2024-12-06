@@ -61,7 +61,8 @@ header {
 	position: relative;
 }
 section {
-	margin: 50px 0
+	margin: 50px 0;
+	max-width: 1850px;
 }
 
 h1{
@@ -113,7 +114,7 @@ li:hover {
 }
 #introduction img {
 	display: block;
-	margin: auto;
+	/*margin: auto;*/
 	width: 80%;
 }
 
@@ -225,14 +226,14 @@ body{
 /*Page de connexion*/
 
   .login-container {
-	max-width: 400px;
+	max-width: 15vw;
 	margin: 0 auto;
 	padding: 20px;
 	text-align: center;
   }
   
-  .login-container button, #add-photo{
-	border: 1px solid #1D6154; /* Couleur de la bordure */
+  .login-container button{
+	border: 1px solid #1D6154 ; /* Couleur de la bordure */
 	border-radius: 25px; /* Coins arrondis */
 	padding: 10px 20px; /* Espacement interne */
 	margin-right: 10px; /* Espacement entre les boutons */
@@ -243,6 +244,33 @@ body{
 	cursor: pointer;
   }
   
+  #add-photo:disabled {
+	background-color: #ccc; /* Gris clair */
+	cursor: not-allowed;
+	color: #666; /* Couleur de texte atténuée */
+  }
+  #add-photo.active {
+	border: 1px solid #1D6154 ; /* Couleur de la bordure */
+	border-radius: 25px; /* Coins arrondis */
+	padding: 10px 20px; /* Espacement interne */
+	margin-right: 10px; /* Espacement entre les boutons */
+	background-color: #1D6154; /* Fond vert */
+	color: white; /* Couleur du texte */
+	font-family: 'Syne', sans-serif; /* Police */
+	font-size: 16px;
+	cursor: pointer;
+  }
+  #add-photo {
+	border: 1px solid #1D6154 ; /* Couleur de la bordure */
+	border-radius: 25px; /* Coins arrondis */
+	padding: 10px 20px; /* Espacement interne */
+	margin-right: 10px; /* Espacement entre les boutons */
+	background-color: #1D6154; /* Fond vert */
+	color: white; /* Couleur du texte */
+	font-family: 'Syne', sans-serif; /* Police */
+	font-size: 16px;
+	cursor: pointer;
+  } 
   .form-group {
 	margin-bottom: 15px;
   }
@@ -476,4 +504,8 @@ input[type="text"], select {
 #preview{
 	max-width: 200px;
 	
+}
+.erreurred{
+	color: red; 
+	display: none;
 }

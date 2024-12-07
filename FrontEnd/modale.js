@@ -199,6 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
             `.delete-icon[data-id="${workId}"]`
           ).parentElement;
           workElement.remove();
+          loadGallery();
+          gallery.renderImages();
         } else {
           console.error(
             "Erreur lors de la suppression du travail:",

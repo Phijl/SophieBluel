@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     err.style.display = "none";
     // Réinitialiser le formulaire
     addPhotoForm.reset();
+    document.getElementById("fileInput").value = ""; // Réinitialise le champ file
 
     // Réinitialiser le sélecteur de catégorie à un état vierge
     categorySelect.value = "";
@@ -87,7 +88,20 @@ document.addEventListener("DOMContentLoaded", () => {
     addPhotoModal.style.display = "";
     modal.style.display = "block";
   });
+  addPhotoButton.addEventListener("click", () => {
+    preview.src = ""; // Vider l'aperçu de l'image
+    picto.style.display = "block";
+    photoBox.querySelector("button").style.display = "initial";
+    photoBox.querySelector("p").style.display = "block";
+    modal.style.display = "block";
+    err.style.display = "none";
+    // Réinitialiser le formulaire
+    addPhotoForm.reset();
+    document.getElementById("fileInput").value = ""; // Réinitialise le champ file
 
+    // Réinitialiser le sélecteur de catégorie à un état vierge
+    categorySelect.value = "";
+  });
   // Ouvrir la modale pour ajouter une photo
   addPhotoButton.addEventListener("click", () => {
     modal.style.display = "none";
@@ -248,9 +262,12 @@ document.addEventListener("DOMContentLoaded", () => {
           );
         }
       })
+
       .catch((error) =>
         console.error("Erreur lors de l'ajout de la photo :", error)
       );
+    addPhotoForm.reset();
+    document.getElementById("fileInput").value = ""; // Réinitialise le champ file
   });
 
   // Vérifie si le bouton "Valider" doit être activé ou désactivé
@@ -259,11 +276,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const category = document.getElementById("category").value;
     const fileInput = document.getElementById("fileInput");
     const validateButton = document.querySelector('button[type="submit"]');
-    
+
     console.log("Validation - Titre:", title);
     console.log("Validation - Catégorie:", category);
     console.log("Validation - Photo uploadée:", fileInput.files.length > 0);
-    
+
     if (title && category && fileInput.files.length > 0) {
       validateButton.disabled = false;
       validateButton.classList.add("active");
